@@ -95,8 +95,26 @@
       </div>
     </div>
     {% endif %}
+
+    {% if current_user.rol == 'Chofer' %}
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm h-100 bg-gradient" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="card-body d-flex flex-column text-white">
+          <h5 class="card-title">
+            <i class="bi bi-bus-front"></i> Panel del Chofer
+          </h5>
+          <p class="card-text flex-grow-1">
+            Ver tus viajes programados, próximos destinos y historial.
+          </p>
+          <a href="{{ url_for('chofer') }}" class="btn btn-light mt-auto">
+            Ir al panel
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
     
-    <div class="col-md-{% if current_user.rol == 'Admin' %}3{% else %}4{% endif %}">
+    <div class="col-md-{% if current_user.rol == 'Admin' %}3{% elif current_user.rol == 'Chofer' %}4{% else %}4{% endif %}">
       <div class="card border-0 shadow-sm h-100">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Nueva venta</h5>
@@ -110,7 +128,7 @@
       </div>
     </div>
 
-    <div class="col-md-{% if current_user.rol == 'Admin' %}3{% else %}4{% endif %}">
+    <div class="col-md-{% if current_user.rol == 'Admin' %}3{% elif current_user.rol == 'Chofer' %}4{% else %}4{% endif %}">
       <div class="card border-0 shadow-sm h-100">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Consultar disponibilidad</h5>
@@ -124,7 +142,7 @@
       </div>
     </div>
 
-    <div class="col-md-{% if current_user.rol == 'Admin' %}3{% else %}4{% endif %}">
+    <div class="col-md-{% if current_user.rol == 'Admin' %}3{% elif current_user.rol == 'Chofer' %}4{% else %}4{% endif %}">
       <div class="card border-0 shadow-sm h-100">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Ventas del día</h5>

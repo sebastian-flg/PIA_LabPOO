@@ -158,6 +158,128 @@ def change_password(id_usuario):
     return redirect(url_for('admin'))
 
 
+# ========== RUTAS DEL CHOFER ==========
+@app.route('/chofer')
+@login_required
+def chofer():
+    if current_user.rol != 'Chofer':
+        flash('Acceso denegado. Esta sección es solo para choferes.', 'danger')
+        return redirect(url_for('home'))
+
+    from datetime import datetime, date
+
+    try:
+        cursor = db.connection.cursor()
+        
+        # Obtener viajes programados del chofer actual (pendientes y en curso)
+        sql_viajes = """
+            SELECT 
+                v.id_viaje,
+                DATE_FORMAT(v.fecha_salida, '%d/%m/%Y') as fecha,
+                DATE_FORMAT(v.fecha_salida, '%H:%i') as hora,
+                t_origen.nombre as origen,
+                t_destino.nombre as destino,
+                a.identificador as bus,
+                (SELECT COUNT(*) FROM Boleto b WHERE b.id_viaje = v.id_viaje AND b.estado = 'Activo') as pasajeros,
+                a.capacidad,
+                v.estado
+            FROM Viaje v
+            INNER JOIN Ruta r ON v.id_ruta = r.id_ruta
+            INNER JOIN Ruta_Terminal rt_origen ON r.id_ruta = rt_origen.id_ruta AND rt_origen.orden_parada = 1
+            INNER JOIN Ruta_Terminal rt_destino ON r.id_ruta = rt_destino.id_ruta 
+                AND rt_destino.orden_parada = (SELECT MAX(orden_parada) FROM Ruta_Terminal WHERE id_ruta = r.id_ruta)
+            INNER JOIN Terminal t_origen ON rt_origen.id_terminal = t_origen.id_terminal
+            INNER JOIN Terminal t_destino ON rt_destino.id_terminal = t_destino.id_terminal
+            INNER JOIN Autobus a ON v.id_autobus = a.id_autobus
+            WHERE v.id_chofer = %s
+            AND v.estado IN ('Programado', 'En Curso')
+            ORDER BY v.fecha_salida ASC
+        """
+        cursor.execute(sql_viajes, (current_user.id_usuario,))
+        rows_viajes = cursor.fetchall()
+        
+        viajes_programados = []
+        for row in rows_viajes:
+            viajes_programados.append({
+                'id_viaje': row[0],
+                'fecha': row[1],
+                'hora': row[2],
+                'origen': row[3],
+                'destino': row[4],
+                'bus': row[5],
+                'pasajeros': row[6] or 0,
+                'capacidad': row[7] or 0,
+                'estado': row[8]
+            })
+        
+        # Obtener historial de viajes completados (últimos 10)
+        sql_historial = """
+            SELECT 
+                DATE_FORMAT(v.fecha_salida, '%d/%m/%Y') as fecha,
+                t_origen.nombre as origen,
+                t_destino.nombre as destino
+            FROM Viaje v
+            INNER JOIN Ruta r ON v.id_ruta = r.id_ruta
+            INNER JOIN Ruta_Terminal rt_origen ON r.id_ruta = rt_origen.id_ruta AND rt_origen.orden_parada = 1
+            INNER JOIN Ruta_Terminal rt_destino ON r.id_ruta = rt_destino.id_ruta 
+                AND rt_destino.orden_parada = (SELECT MAX(orden_parada) FROM Ruta_Terminal WHERE id_ruta = r.id_ruta)
+            INNER JOIN Terminal t_origen ON rt_origen.id_terminal = t_origen.id_terminal
+            INNER JOIN Terminal t_destino ON rt_destino.id_terminal = t_destino.id_terminal
+            WHERE v.id_chofer = %s
+            AND v.estado = 'Completado'
+            ORDER BY v.fecha_salida DESC
+            LIMIT 10
+        """
+        cursor.execute(sql_historial, (current_user.id_usuario,))
+        rows_historial = cursor.fetchall()
+        
+        historial_viajes = []
+        for row in rows_historial:
+            historial_viajes.append({
+                'fecha': row[0],
+                'origen': row[1],
+                'destino': row[2]
+            })
+        
+        # Contar viajes completados hoy
+        sql_hoy = """
+            SELECT COUNT(*) 
+            FROM Viaje 
+            WHERE id_chofer = %s 
+            AND DATE(fecha_salida) = CURDATE() 
+            AND estado = 'Completado'
+        """
+        cursor.execute(sql_hoy, (current_user.id_usuario,))
+        viajes_completados_hoy = cursor.fetchone()[0] or 0
+        
+        # Próximo viaje es el primero de la lista
+        proximo = viajes_programados[0] if viajes_programados else None
+        
+        # Contar viajes pendientes
+        viajes_pendientes_count = len([v for v in viajes_programados if v['estado'] == 'Programado'])
+        
+        cursor.close()
+        
+    except Exception as ex:
+        app.logger.error(f"Error en ruta /chofer: {ex}")
+        viajes_programados = []
+        historial_viajes = []
+        viajes_completados_hoy = 0
+        viajes_pendientes_count = 0
+        proximo = None
+
+    fecha_actual = datetime.now().strftime('%d/%m/%Y')
+
+    return render_template('chofer/chofer.html', 
+                            user=current_user,
+                            viajes=viajes_programados,
+                            viajes_hoy=viajes_completados_hoy,
+                            viajes_pendientes=viajes_pendientes_count,
+                            proximo_viaje=proximo,
+                            historial=historial_viajes,
+                            fecha_hoy=fecha_actual)
+
+
 if __name__ == '__main__':
     app.register_error_handler(401, status_401)
     app.register_error_handler(404, status_404)
