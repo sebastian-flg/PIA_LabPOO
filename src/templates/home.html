@@ -80,7 +80,7 @@
   <div class="row g-3 mb-4">
     {% if current_user.rol == 'Admin' %}
     <div class="col-md-3">
-      <div class="card border-0 shadow-sm h-100 bg-gradient" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+      <div class="card border-0 shadow-sm h-100 bg-gradient" style="background: linear-gradient(135deg, #667eea 0%, #0B7ED9 100%);">
         <div class="card-body d-flex flex-column text-white">
           <h5 class="card-title">
             <i class="bi bi-speedometer2"></i> Panel Admin
@@ -89,7 +89,7 @@
             Gestionar usuarios y configuraciones del sistema.
           </p>
           <a href="{{ url_for('admin') }}" class="btn btn-light mt-auto">
-            Ir al panel
+            Ir al panel de Administrador
           </a>
         </div>
       </div>
@@ -182,35 +182,32 @@
           </tr>
           </thead>
           <tbody>
-          {% if viajes_hoy %}
-            {% for v in viajes_hoy %}
-              <tr>
-                <td>{{ v.fecha_salida }}</td>
-                <td>{{ v.fecha_llegada }}</td>
-                <td>{{ v.origen_ciudad }} - {{ v.origen_terminal }}</td>
-                <td>{{ v.destino_ciudad }} - {{ v.destino_terminal }}</td>
-                <td>{{ v.ruta_nombre }}{% if v.clase_nombre %} ({{ v.clase_nombre }}){% endif %}</td>
-                <td>{{ v.chofer_nombre }}</td>
-                <td>{{ v.autobus_identificador }}</td>
-                <td class="text-center">
-                  {{ v.asientos_disponibles }}
-                </td>
-                <td class="text-end">
-                  <a href="{{ url_for('nueva_venta', id_viaje=v.id_viaje) }}"
-                     class="btn btn-sm btn-success">
-                    Vender
-                  </a>
-                </td>
-              </tr>
-            {% endfor %}
-          {% else %}
-            <tr>
-              <td colspan="9" class="text-center text-muted py-4">
-                No hay viajes programados para hoy.
-              </td>
-            </tr>
-          {% endif %}
-          </tbody>
+  {% if viajes_hoy %}
+    {% for v in viajes_hoy %}
+      <tr>
+        <td>{{ v.fecha_salida }}</td>
+        <td>{{ v.fecha_llegada }}</td>
+        <td>{{ v.origen_ciudad }} - {{ v.origen_terminal }}</td>
+        <td>{{ v.destino_ciudad }} - {{ v.destino_terminal }}</td>
+        <td>{{ v.ruta_nombre }} / {{ v.clase_nombre }}</td>
+        <td>{{ v.chofer_nombre }}</td>
+        <td>{{ v.autobus_identificador }}</td>
+        <td class="text-center">{{ v.asientos_disponibles }}</td>
+        <td class="text-end">
+          {# En el futuro: llevar a nueva venta con este viaje #}
+          {# <a href="{{ url_for('nueva_venta', id_viaje=v.id_viaje) }}" class="btn btn-sm btn-success">Vender</a> #}
+        </td>
+      </tr>
+    {% endfor %}
+  {% else %}
+    <tr>
+      <td colspan="9" class="text-center text-muted py-4">
+        No hay viajes programados para hoy.
+      </td>
+    </tr>
+  {% endif %}
+</tbody>
+
         </table>
       </div>
     </div>

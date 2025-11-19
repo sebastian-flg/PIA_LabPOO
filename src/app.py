@@ -6,6 +6,8 @@ from functools import wraps
 from config import config
 from Models.ModelUser import ModelUser
 from Models.entities.User import User
+from datetime import datetime
+import MySQLdb.cursors
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
@@ -60,7 +62,103 @@ def login():
 @app.route('/home')
 @login_required
 def home():
-    return render_template('home.html', user=current_user)
+    try:
+        cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+        # 1) KPIs del día (boletos y monto)
+        cursor.execute("""
+            SELECT 
+                COUNT(*) AS boletos_hoy,
+                COALESCE(SUM(monto), 0) AS monto_hoy
+            FROM Venta
+            WHERE DATE(fecha_venta) = CURDATE();
+        """)
+        kpi = cursor.fetchone() or {'boletos_hoy': 0, 'monto_hoy': 0}
+
+        # 2) Viajes programados para HOY
+        cursor.execute("""
+            SELECT
+              v.id_viaje,
+              v.fecha_salida,
+              v.fecha_llegada,
+
+              r.nombre  AS ruta_nombre,
+              cs.nombre AS clase_nombre,  -- ← NUEVO
+
+              ch.nombre AS chofer_nombre,
+              CONCAT_WS(' ', a.numero_placa, a.numero_fisico) AS autobus_identificador,
+
+              oc.nombre  AS origen_ciudad,
+              ot.nombre  AS origen_terminal,
+              dc.nombre  AS destino_ciudad,
+              dt.nombre  AS destino_terminal,
+
+              COALESCE(ad.asientos_disponibles, a.capacidad) AS asientos_disponibles
+
+            FROM Viaje v
+            JOIN Ruta   r  ON r.id_ruta     = v.id_ruta
+            JOIN Autobus a ON a.id_autobus  = v.id_autobus
+            JOIN ClaseServicio cs ON cs.id_clase = a.id_clase   -- ← NUEVO JOIN
+            JOIN Chofer ch  ON ch.id_chofer = v.id_chofer
+
+            -- Origen: menor orden_parada
+            JOIN Viaje_Escala ve_o
+              ON ve_o.id_viaje = v.id_viaje
+             AND ve_o.orden_parada = (
+                 SELECT MIN(orden_parada)
+                 FROM Viaje_Escala
+                 WHERE id_viaje = v.id_viaje
+             )
+            JOIN Terminal ot   ON ot.id_terminal = ve_o.id_terminal
+            JOIN Ciudad  oc    ON oc.id_ciudad   = ot.id_ciudad
+
+            -- Destino: mayor orden_parada
+            JOIN Viaje_Escala ve_d
+              ON ve_d.id_viaje = v.id_viaje
+             AND ve_d.orden_parada = (
+                 SELECT MAX(orden_parada)
+                 FROM Viaje_Escala
+                 WHERE id_viaje = v.id_viaje
+             )
+            JOIN Terminal dt   ON dt.id_terminal = ve_d.id_terminal
+            JOIN Ciudad  dc    ON dc.id_ciudad   = dt.id_ciudad
+
+            -- Asientos disponibles desde la vista
+            LEFT JOIN vw_asientos_disponibilidad ad
+                   ON ad.id_viaje = v.id_viaje
+
+            WHERE DATE(v.fecha_salida) = CURDATE()
+              AND v.estado <> 'Cancelado'
+            ORDER BY v.fecha_salida;
+        """)
+
+        viajes_hoy = cursor.fetchall()  # lista de diccionarios
+        cursor.close()
+
+        viajes_hoy_count = len(viajes_hoy)
+        boletos_hoy = kpi['boletos_hoy']
+        monto_hoy = float(kpi['monto_hoy'])
+
+    except Exception as e:
+        app.logger.error(f"Error cargando /home: {e}")
+        flash('Ocurrió un error al cargar la información del día.', 'danger')
+        viajes_hoy = []
+        viajes_hoy_count = 0
+        boletos_hoy = 0
+        monto_hoy = 0.0
+
+    # Fecha formateada para el encabezado del dashboard
+    fecha_hoy = datetime.now().strftime("%d/%m/%Y")
+
+    return render_template(
+        'home.html',
+        user=current_user,
+        fecha_hoy=fecha_hoy,
+        boletos_hoy=boletos_hoy,
+        monto_hoy=f"{monto_hoy:.2f}",
+        viajes_hoy=viajes_hoy,
+        viajes_hoy_count=viajes_hoy_count
+    )
+
 
 @app.route('/protected')
 @login_required
