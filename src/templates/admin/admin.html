@@ -320,9 +320,9 @@
     </div>
 </div>
 
-<!-- Modal Crear Usuario -->
+<!-- Modal Crear Usuario (Usuario + Empleado + Chofer) -->
 <div class="modal fade" id="createUserModal" tabindex="-1">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">
@@ -333,35 +333,119 @@
             <form method="POST" action="{{ url_for('create_user') }}">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label"><i class="bi bi-person"></i> Nombre Completo</label>
-                        <input type="text" class="form-control" name="nombre_completo" 
-                               placeholder="Ej: Juan Pérez García" required>
+                    <!-- Datos de la cuenta de acceso (tabla Usuario) -->
+                    <h6 class="mb-3"><i class="bi bi-person-circle"></i> Datos de acceso</h6>
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" name="nombre_completo"
+                                   placeholder="Ej: Juan Pérez García" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email corporativo</label>
+                            <input type="email" class="form-control" name="email"
+                                   placeholder="usuario@buslink.com" required>
+                            <small class="text-muted">Debe terminar en @buslink.com</small>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label"><i class="bi bi-envelope"></i> Email</label>
-                        <input type="email" class="form-control" name="email" 
-                               placeholder="usuario@buslink.com" required>
-                        <small class="text-muted">Debe terminar en @buslink.com</small>
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="password"
+                                   minlength="6" placeholder="Mínimo 6 caracteres" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Rol de sistema</label>
+                            <select class="form-select" name="rol" id="rolSelect" required>
+                                <option value="">Seleccione un rol...</option>
+                                <option value="Admin">Administrador</option>
+                                <option value="Empleado" selected>Empleado (Taquilla)</option>
+                                <option value="Chofer">Chofer</option>
+                                <!-- Se mantienen otros roles por si los necesitas más adelante -->
+                                <option value="Mecanico">Mecánico</option>
+                                <option value="Cliente">Cliente</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label"><i class="bi bi-lock"></i> Contraseña</label>
-                        <input type="password" class="form-control" name="password" 
-                               minlength="6" placeholder="Mínimo 6 caracteres" required>
+
+                    <hr>
+
+                    <!-- Datos de Empleado (tabla Empleado) -->
+                    <h6 class="mb-3"><i class="bi bi-briefcase"></i> Datos de empleado</h6>
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" name="telefono_empleado"
+                                   placeholder="Ej: 8123456789">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Estado laboral</label>
+                            <input type="text" class="form-control" value="Activo" disabled>
+                            <small class="text-muted">El usuario se creará como activo por defecto.</small>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label"><i class="bi bi-shield"></i> Rol</label>
-                        <select class="form-select" name="rol" required>
-                            <option value="">Seleccione un rol...</option>
-                            <option value="Admin">Administrador</option>
-                            <option value="Empleado" selected>Empleado</option>
-                            <option value="Chofer">Chofer</option>
-                            <option value="Mecanico">Mecánico</option>
-                            <option value="Cliente">Cliente</option>
-                        </select>
+
+                    <!-- Datos específicos de Chofer (tabla Chofer) -->
+                    <div id="choferFields" style="display:none;">
+                        <hr>
+                        <h6 class="mb-3"><i class="bi bi-bus-front"></i> Datos específicos de chofer</h6>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">RFC</label>
+                                <input type="text" class="form-control" name="rfc" maxlength="13" placeholder="RFC del chofer">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">CURP</label>
+                                <input type="text" class="form-control" name="curp" maxlength="18" placeholder="CURP del chofer">
+                            </div>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">NSS</label>
+                                <input type="text" class="form-control" name="nss" maxlength="15" placeholder="Número de Seguro Social">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Dirección</label>
+                                <input type="text" class="form-control" name="direccion" placeholder="Dirección completa">
+                            </div>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Fecha de ingreso</label>
+                                <input type="date" class="form-control" name="fecha_ingreso">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Licencia</label>
+                                <input type="text" class="form-control" name="licencia" placeholder="Número de licencia" >
+                            </div>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Tipo de licencia</label>
+                                <input type="text" class="form-control" name="licencia_tipo" placeholder="Ej: A, B, C">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Fecha de expiración</label>
+                                <input type="date" class="form-control" name="licencia_expira">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Años de experiencia</label>
+                                <input type="number" class="form-control" name="anios_experiencia" min="0" value="0">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Notas</label>
+                            <textarea class="form-control" name="notas" rows="2" placeholder="Información adicional sobre el chofer"></textarea>
+                        </div>
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle"></i>
+                            Estos datos se guardarán en la tabla <strong>Chofer</strong>, vinculados al empleado creado.
+                        </div>
                     </div>
-                    <div class="alert alert-warning">
-                        <i class="bi bi-exclamation-triangle"></i> <strong>Nota:</strong> El usuario se creará con estado <strong>Activo</strong> por defecto.
+
+                    <div class="alert alert-warning mt-3">
+                        <i class="bi bi-exclamation-triangle"></i> <strong>Nota:</strong> El usuario se creará con estado <strong>Activo</strong> por defecto
+                        y se registrará como <strong>Empleado</strong>. Si el rol es <strong>Chofer</strong>, también se creará el registro completo en la tabla <strong>Chofer</strong>.
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -376,15 +460,33 @@
 </div>
 
 <script>
-// Búsqueda en tiempo real
+// Búsqueda en tiempo real en la tabla
 document.getElementById('searchInput').addEventListener('keyup', function() {
     const searchValue = this.value.toLowerCase();
     const tableRows = document.querySelectorAll('#usersTable tbody tr');
-    
+
     tableRows.forEach(row => {
         const text = row.textContent.toLowerCase();
         row.style.display = text.includes(searchValue) ? '' : 'none';
     });
 });
+
+// Mostrar / ocultar campos de chofer según el rol seleccionado
+const rolSelect = document.getElementById('rolSelect');
+const choferFields = document.getElementById('choferFields');
+
+if (rolSelect && choferFields) {
+    function toggleChoferFields() {
+        if (rolSelect.value === 'Chofer') {
+            choferFields.style.display = '';
+        } else {
+            choferFields.style.display = 'none';
+        }
+    }
+
+    rolSelect.addEventListener('change', toggleChoferFields);
+    // Inicializar al abrir la página
+    toggleChoferFields();
+}
 </script>
 {% endblock %}

@@ -195,17 +195,45 @@ def create_user():
     email = request.form.get('email', '').strip()
     password = request.form.get('password', '')
     rol = request.form.get('rol', 'Empleado')
-    
+    telefono = request.form.get('telefono_empleado', None)
+
     if not nombre_completo or not email or not password:
-        flash('Todos los campos son obligatorios.', 'danger')
+        flash('Nombre, email y contraseña son obligatorios.', 'danger')
         return redirect(url_for('admin'))
-    
-    if ModelUser.create_user(db, nombre_completo, email, password, rol):
+
+    chofer_data = None
+    if rol == 'Chofer':
+        chofer_data = {
+            'rfc': request.form.get('rfc', None),
+            'curp': request.form.get('curp', None),
+            'nss': request.form.get('nss', None),
+            'direccion': request.form.get('direccion', None),
+            'fecha_ingreso': request.form.get('fecha_ingreso', None),
+            'licencia': request.form.get('licencia', '').strip(),
+            'licencia_tipo': request.form.get('licencia_tipo', None),
+            'licencia_expira': request.form.get('licencia_expira', None),
+            'anios_experiencia': request.form.get('anios_experiencia', 0),
+            'notas': request.form.get('notas', None)
+        }
+
+    ok = ModelUser.create_user(
+        db,
+        nombre_completo=nombre_completo,
+        email=email,
+        password=password,
+        rol=rol,
+        telefono=telefono,
+        chofer_data=chofer_data
+    )
+
+    if ok:
         flash(f'Usuario {nombre_completo} creado exitosamente.', 'success')
     else:
-        flash('Error al crear el usuario. Verifique que el email no esté duplicado.', 'danger')
-    
+        flash('Error al crear el usuario. Revisa los datos e intenta de nuevo.', 'danger')
+
     return redirect(url_for('admin'))
+
+
 
 @app.route('/admin/update_user/<int:id_usuario>', methods=['POST'])
 @login_required
