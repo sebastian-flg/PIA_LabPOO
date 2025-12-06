@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/MainAPP/Main.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/vista/login.fxml</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/controlador/Login.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/vista/menu_reportes.fxml</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/controlador/ReportesMenu.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/vista/guifxml.fxml</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/controlador/InventarioMenu.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/controlador/Controller.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/modelo/ControlAccesoClientesFlores.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/vista/registroView.fxml</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/controlador/Registro.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/vista/calendarioView.fxml</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/modelo/GestionEmpleadosFlores.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/modelo/ControlAccesoEmpleadosFlores.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/modelo/Empleado.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/modelo/Acceso.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/controlador/EmpleadosMenu.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/vista/menu_clientes.fxml</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/vista/menu_empleados.fxml</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/Recursos1/style/login.css</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/vista/menu_inventario.fxml</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/modelo/TipoReporte.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/modelo/SistemaMembresias0112.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/modelo/ProductoVendido.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/modelo/ProcesadorPagos564.java</file>
+            <file>file:/C:/Users/sebas/OneDrive/Escritorio/GymPOSSF564/src/GymPOSSF564/controlador/ClientesMenu.java</file>
+        </group>
+    </open-files>
+</project-private>
