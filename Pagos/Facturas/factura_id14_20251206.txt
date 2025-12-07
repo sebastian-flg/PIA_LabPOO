@@ -1,0 +1,12 @@
+
+GymPOSSF564
+Tiquet de suscripcion a membresia
+============================================
+ID del cliente: 14
+Nombre del cliente: Andre Gignac
+Membresia: Plata
+Fecha y hora: 2025-12-06T07:18:42.181503200
+Subtotal: 300.509
+Descuento: 0 porciento
+Total: 300.509
+Metodo de pago: efectivo

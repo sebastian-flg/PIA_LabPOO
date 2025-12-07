@@ -1,0 +1,12 @@
+
+GymPOSSF564
+Tiquet de suscripcion a membresia
+============================================
+ID del cliente: 16
+Nombre del cliente: Azucena Perez
+Membresia: Bronce
+Fecha y hora: 2025-12-06T07:19:50.308124800
+Subtotal: 200.509
+Descuento: 0 porciento
+Total: 200.509
+Metodo de pago: efectivo

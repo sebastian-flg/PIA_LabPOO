@@ -1,0 +1,1 @@
+ID del cliente: 20, Nombre: Jose, Apellidos: Gonzalez, Hora de salida: 2025-12-06T18:29:16.509644900

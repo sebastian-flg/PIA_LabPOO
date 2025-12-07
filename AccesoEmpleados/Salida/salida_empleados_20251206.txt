@@ -1,0 +1,1 @@
+ID del empleado: 1, Nombre: Julio, Apellidos: Perez, Hora de salida: 2025-12-06T19:02:57.475641800

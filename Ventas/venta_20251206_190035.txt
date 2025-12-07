@@ -1,0 +1,4 @@
+VENTA | Fecha: 06/12/2025 | Cliente: Daniela | FechaHora: 2025-12-06T19:00:35.607626100
+ID: 4 | Nombre: playera deportiva | Categoria: Accesorios | Cantidad vendida: 3 | Precio: 150.00
+
+Total: 450.00

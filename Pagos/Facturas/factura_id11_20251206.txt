@@ -1,0 +1,12 @@
+
+GymPOSSF564
+Tiquet de suscripcion a membresia
+============================================
+ID del cliente: 11
+Nombre del cliente: Iram Rodriguez
+Membresia: Bronce
+Fecha y hora: 2025-12-06T07:17:36.686869
+Subtotal: 200.509
+Descuento: 0 porciento
+Total: 200.509
+Metodo de pago: efectivo

@@ -1,0 +1,12 @@
+
+GymPOSSF564
+Tiquet de suscripcion a membresia
+============================================
+ID del cliente: 3
+Nombre del cliente: Juliio Gonzalez
+Membresia: Oro
+Fecha y hora: 2025-12-06T07:13:37.607017600
+Subtotal: 400.509
+Descuento: 100 porciento
+Total: 0.0
+Metodo de pago: efectivo

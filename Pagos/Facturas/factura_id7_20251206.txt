@@ -1,0 +1,12 @@
+
+GymPOSSF564
+Tiquet de suscripcion a membresia
+============================================
+ID del cliente: 7
+Nombre del cliente: Fernando Valdez
+Membresia: Plata
+Fecha y hora: 2025-12-06T07:16:20.175581900
+Subtotal: 300.509
+Descuento: 0 porciento
+Total: 300.509
+Metodo de pago: efectivo

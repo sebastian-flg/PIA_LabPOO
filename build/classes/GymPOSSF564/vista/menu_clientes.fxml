@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="eliminar_cliente" prefHeight="557.0" prefWidth="750"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="GymPOSSF564.controlador.ClientesMenu">
+
+    <top>
+        <VBox spacing="10" alignment="CENTER">
+            <Label text="Opciones clientes">
+                <font>
+                    <Font size="22.0"/>
+                </font>
+            </Label>
+
+            <HBox fx:id="barraOpciones"
+                  alignment="CENTER"
+                  spacing="20"
+                  styleClass="barra-opciones-superior">
+
+                <Button fx:id="registrar" text="Registrar"
+                        styleClass="button-primary" prefHeight="45" />
+
+                <Button fx:id="actualizar" text="Actualizar"
+                        styleClass="button-primary" prefHeight="45" />
+
+                <Button fx:id="buscar" text="Buscar"
+                        styleClass="button-primary" prefHeight="45" />
+
+                <Button fx:id="eliminar" text="Eliminar"
+                        styleClass="button-primary" prefHeight="45" />
+
+                <Button fx:id="entradaSalida" text="Entrada / Salida"
+                        styleClass="button-primary" prefHeight="45" />
+
+                <Button fx:id="salir" text="Salir"
+                        styleClass="button-secundary" prefHeight="45" />
+
+            </HBox>
+
+        </VBox>
+    </top>
+
+    <center>
+        <VBox fx:id="contenido"
+              alignment="CENTER_LEFT"
+              spacing="10"
+              prefWidth="420"
+              prefHeight="500" />
+    </center>
+
+</BorderPane>

@@ -1,0 +1,12 @@
+
+GymPOSSF564
+Tiquet de suscripcion a membresia
+============================================
+ID del cliente: 6
+Nombre del cliente: Mauricio Gonzalez
+Membresia: Oro
+Fecha y hora: 2025-12-06T07:16:05.884258700
+Subtotal: 400.509
+Descuento: 0 porciento
+Total: 400.509
+Metodo de pago: efectivo

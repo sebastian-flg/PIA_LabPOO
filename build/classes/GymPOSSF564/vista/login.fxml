@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@../../Recursos1/style/login.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GymPOSSF564.controlador.Login">
+    <top>
+        <BorderPane prefHeight="100.0" prefWidth="1000.0" BorderPane.alignment="CENTER" style="-fx-background-color: #2C3E50;">
+            <padding>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+            </padding>
+            <left>
+                <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                    <image>
+                        <Image url="@../../Recursos/Logo.jpg" />
+                    </image>
+                </ImageView>
+            </left>
+            <center>
+                <Label text="GYM POWERHOUSE JDS - Sistema de Gestion" style="-fx-text-fill: white; -fx-font-weight: bold;" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+            </center>
+        </BorderPane>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" prefViewportHeight="500.0" prefViewportWidth="800.0" style="-fx-background: #ECF0F1;">
+            <content>
+                <VBox fx:id="loginContainer" alignment="CENTER" prefHeight="500.0" prefWidth="600.0" styleClass="loginContainer" BorderPane.alignment="TOP_CENTER">
+                    <children>
+                        <Label styleClass="label-titulo" text="Iniciar Sesion" style="-fx-text-fill: #2C3E50;">
+                            <font>
+                                <Font name="System Bold" size="32.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="20.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label styleClass="label-subtitulo" text="Ingrese sus credenciales de acceso" style="-fx-text-fill: #7F8C8D;">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="30.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label text="ID de Usuario" style="-fx-text-fill: #2C3E50;">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="5.0" />
+                            </VBox.margin>
+                        </Label>
+                        <TextField fx:id="idTextField" prefHeight="40.0" prefWidth="400.0" promptText="Ingresa tu ID" styleClass="text-field">
+                            <VBox.margin>
+                                <Insets bottom="20.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <Label text="Contraseña" style="-fx-text-fill: #2C3E50;">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="5.0" />
+                            </VBox.margin>
+                        </Label>
+                        <TextField fx:id="contrasenaTextField" prefHeight="40.0" prefWidth="400.0" promptText="Ingresa tu contraseña" styleClass="password-field">
+                            <VBox.margin>
+                                <Insets bottom="40.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <BorderPane prefHeight="50.0" prefWidth="400.0">
+                            <left>
+                                <Button fx:id="logginButton" mnemonicParsing="false" onAction="#btnIngresar" styleClass="button-primary" text="Iniciar Sesion" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                    <effect>
+                                        <Blend />
+                                    </effect>
+                                    <BorderPane.margin>
+                                        <Insets right="10.0" />
+                                    </BorderPane.margin>
+                                </Button>
+                            </left>
+                            <right>
+                                <Button fx:id="registrarButton" mnemonicParsing="false" onAction="#btnRegistrar" styleClass="button-secondary" text="Registrar" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                            </right>
+                        </BorderPane>
+                    </children>
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </padding>
+                </VBox>
+            </content>
+            <BorderPane.margin>
+                <Insets top="20.0" bottom="20.0" />
+            </BorderPane.margin>
+        </ScrollPane>
+    </center>
+</BorderPane>

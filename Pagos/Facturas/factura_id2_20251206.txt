@@ -1,0 +1,12 @@
+
+GymPOSSF564
+Tiquet de suscripcion a membresia
+============================================
+ID del cliente: 2
+Nombre del cliente: Daniel Barbosa
+Membresia: Plata
+Fecha y hora: 2025-12-06T07:11:26.463514400
+Subtotal: 300.509
+Descuento: 0 porciento
+Total: 300.509
+Metodo de pago: tarjeta

@@ -1,0 +1,116 @@
+===== GYM POSSF 564 - REPORTE CLIENTES =====
+Generado por: admin
+Fecha de generacion: 06/12/2025 19:12:08
+
+Total de clientes: 18
+------------------------------------
+ID: 1
+Nombre: Daniela
+Apellidos: Garza
+Telefono: 8126269677
+Puntos: 10
+------------------------------------
+ID: 2
+Nombre: Daniel
+Apellidos: Barbosa
+Telefono: 8139934445
+Puntos: 20
+------------------------------------
+ID: 3
+Nombre: Juliio
+Apellidos: Gonzalez
+Telefono: 8123499949
+Puntos: 30
+------------------------------------
+ID: 4
+Nombre: Julia
+Apellidos: Martinez
+Telefono: 8123999232
+Puntos: 20
+------------------------------------
+ID: 6
+Nombre: Mauricio
+Apellidos: Gonzalez
+Telefono: 8115368344
+Puntos: 30
+------------------------------------
+ID: 7
+Nombre: Fernando
+Apellidos: Valdez
+Telefono: 8121334553
+Puntos: 20
+------------------------------------
+ID: 8
+Nombre: Juan 
+Apellidos: Pena
+Telefono: 8155648887
+Puntos: 10
+------------------------------------
+ID: 9
+Nombre: Alejandro
+Apellidos: Ramirez
+Telefono: 8124005444
+Puntos: 30
+------------------------------------
+ID: 10
+Nombre: Eduardo
+Apellidos: Constante
+Telefono: 8123899565
+Puntos: 20
+------------------------------------
+ID: 12
+Nombre: Miguel
+Apellidos: De Leon
+Telefono: 8123235655
+Puntos: 20
+------------------------------------
+ID: 13
+Nombre: Manuel
+Apellidos: Garcia
+Telefono: 8123342909
+Puntos: 20
+------------------------------------
+ID: 14
+Nombre: Andre
+Apellidos: Gignac
+Telefono: 8123453654
+Puntos: 20
+------------------------------------
+ID: 15
+Nombre: Maria
+Apellidos: Perez
+Telefono: 8123134535
+Puntos: 20
+------------------------------------
+ID: 16
+Nombre: Azucena
+Apellidos: Perez
+Telefono: 8129045677
+Puntos: 10
+------------------------------------
+ID: 17
+Nombre: Irving
+Apellidos: Moreno
+Telefono: 8133509354
+Puntos: 20
+------------------------------------
+ID: 18
+Nombre: Rosa
+Apellidos: Martinez
+Telefono: 8123932566
+Puntos: 30
+------------------------------------
+ID: 19
+Nombre: Gerardo
+Apellidos: Ortiz
+Telefono: 8123900533
+Puntos: 20
+------------------------------------
+ID: 20
+Nombre: Jose
+Apellidos: Gonzalez
+Telefono: 8112457878
+Puntos: 30
+------------------------------------
+
+===== FIN DEL REPORTE =====

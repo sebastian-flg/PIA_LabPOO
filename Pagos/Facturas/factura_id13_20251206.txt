@@ -1,0 +1,12 @@
+
+GymPOSSF564
+Tiquet de suscripcion a membresia
+============================================
+ID del cliente: 13
+Nombre del cliente: Manuel Garcia
+Membresia: Plata
+Fecha y hora: 2025-12-06T07:18:20.731413500
+Subtotal: 300.509
+Descuento: 0 porciento
+Total: 300.509
+Metodo de pago: efectivo

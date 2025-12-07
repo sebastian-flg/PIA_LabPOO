@@ -1,0 +1,394 @@
+
+.root {
+    -fondo-claro: #050505;
+    -fondo-tarjeta: #151515;
+
+    -borde-tarjeta: #ff2222;
+
+    -color-primario: #ff3333;
+    -color-primario-hover: #ff1111;
+
+    -color-secundario: #505050;
+    -color-secundario-hover: #707070;
+
+    -color-texto-principal: #ffffff;
+    -color-texto-secundario: #f0f0f0;
+
+    -color-acento: #ff5555;
+    -color-destacado: #ff6666;
+
+    -color-exito: #4CAF50;
+    -color-error: #ff4444;
+    -color-alerta: #ff9800;
+}
+
+
+.root {
+    -fx-background-color: linear-gradient(to bottom, #000000, #0a0a0a);
+}
+
+
+* {
+    -fx-background-color: -fondo-claro !important;
+}
+
+
+.loginContainer,
+.menu-lateral,
+.contenido-dinamico,
+.panel-busqueda,
+.resultado-busqueda,
+.busqueda-panel,
+.area-datos,
+.resultado,
+.formulario-busqueda,
+.contenedor-resultados,
+.panel-resultado,
+.datos-encontrados,
+.info-panel {
+    -fx-background-color: linear-gradient(to bottom right, -fondo-tarjeta, #1a1a1a) !important;
+    -fx-border-color: linear-gradient(to right, -borde-tarjeta, #ff6666) !important;
+    -fx-border-width: 2px !important;
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.4), 25, 0.3, 0, 8) !important;
+}
+
+.loginContainer,
+.menu-lateral,
+.contenido-dinamico,
+.panel-busqueda,
+.resultado-busqueda {
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.5), 25, 0.3, 0, 8);
+}
+
+.loginContainer {
+    -fx-padding: 40px 35px;
+    -fx-alignment: top-center;
+    -fx-background-color: linear-gradient(to bottom, #151515, #1a1a1a) !important;
+}
+
+.menu-lateral {
+    -fx-padding: 25px 20px;
+    -fx-spacing: 15px;
+    -fx-border-color: linear-gradient(to bottom, #ff2222, #ff5555) !important;
+}
+
+.contenido-dinamico {
+    -fx-padding: 30px;
+    -fx-background-color: linear-gradient(to right, #151515, #1a1a1a) !important;
+}
+
+
+.panel-busqueda {
+    -fx-padding: 25px;
+    -fx-spacing: 15px;
+    -fx-alignment: top-center;
+    -fx-background-color: linear-gradient(to bottom, #151515, #1c1c1c) !important;
+}
+
+.resultado-busqueda {
+    -fx-padding: 20px;
+    -fx-spacing: 12px;
+    -fx-alignment: top-left;
+    -fx-max-width: 600px;
+    -fx-background-color: linear-gradient(to bottom, #151515, #1e1e1e) !important;
+}
+
+.panel-busqueda .text-field,
+.resultado-busqueda .text-field {
+    -fx-background-color: #252525 !important;
+    -fx-border-color: #ff3333 !important;
+    -fx-border-radius: 8px !important;
+    -fx-border-width: 1.5px !important;
+    -fx-padding: 12px !important;
+    -fx-text-fill: white !important;
+    -fx-font-size: 14px !important;
+    -fx-prompt-text-fill: #cccccc !important;
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.2), 10, 0.2, 0, 2);
+}
+
+
+.panel-busqueda .label,
+.resultado-busqueda .label,
+.busqueda-panel .label,
+.area-datos .label {
+    -fx-text-fill: -color-texto-principal !important;
+    -fx-font-size: 14px !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 1, 0.5, 0, 1);
+}
+
+
+.panel-busqueda .label-titulo,
+.resultado-busqueda .label-titulo {
+    -fx-font-size: 22px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-padding: 0 0 15px 0 !important;
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.3), 5, 0.3, 0, 2);
+}
+
+
+.barra-opciones-superior {
+    -fx-alignment: center;
+    -fx-spacing: 20px;
+    -fx-padding: 10px 0 25px 0;
+    -fx-background-color: linear-gradient(to bottom, #000000, #0a0a0a);
+    -fx-border-color: #ff3333;
+    -fx-border-width: 0 0 1px 0;
+}
+
+
+.label,
+.text {
+    -fx-text-fill: -color-texto-principal !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 1, 0.5, 0, 1);
+}
+
+.label-campo {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.label-titulo {
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.4), 8, 0.4, 0, 3);
+}
+
+.label-subtitulo {
+    -fx-font-size: 16px;
+    -fx-text-fill: #f0f0f0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 1, 0.5, 0, 1);
+}
+
+
+.text-field,
+.password-field {
+    -fx-background-color: #222222;
+    -fx-border-color: #ff3333;
+    -fx-border-radius: 8px;
+    -fx-padding: 14px;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #bbbbbb;
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.2), 10, 0.2, 0, 2);
+}
+
+.text-field:focused,
+.password-field:focused {
+    -fx-border-color: #ff5555;
+    -fx-background-color: #2a2a2a;
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.4), 15, 0.4, 0, 4);
+}
+
+
+.button-primary {
+    -fx-background-color: linear-gradient(to bottom, -color-primario, #ff2222);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 14px 26px;
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.5), 15, 0.4, 0, 5);
+    -fx-min-width: 150px;
+}
+
+.button-primary:hover {
+    -fx-background-color: linear-gradient(to bottom, -color-primario-hover, #ff0000);
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.7), 18, 0.5, 0, 6);
+}
+
+.button-secundary {
+    -fx-background-color: linear-gradient(to bottom, #252525, #303030);
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #ff3333;
+    -fx-border-width: 1.5px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 20px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.3, 0, 2);
+}
+
+
+#entradaSalida {
+    -fx-min-width: 210px !important;
+    -fx-font-size: 18px !important;
+    -fx-padding: 16px 28px !important;
+    -fx-background-color: linear-gradient(to bottom, #ff3333, #cc0000) !important;
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.6), 20, 0.5, 0, 7) !important;
+}
+
+
+.table-view {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #ff3333;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1.5px;
+}
+
+.table-view .column-header {
+    -fx-background-color: linear-gradient(to bottom, #ff3333, #cc0000);
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #333333;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #1a1a1a;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #222222;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #ff3333;
+}
+
+
+.combo-box,
+.choice-box {
+    -fx-background-color: #252525;
+    -fx-border-color: #ff3333;
+    -fx-text-fill: #ffffff;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1.5px;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: #ff3333;
+}
+
+.combo-box-popup .list-view,
+.choice-box-popup .list-view {
+    -fx-background-color: #252525 !important;
+    -fx-border-color: #ff3333 !important;
+    -fx-border-width: 1.5px !important;
+}
+
+.combo-box-popup .list-cell,
+.choice-box-popup .list-cell {
+    -fx-background-color: #252525 !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-padding: 10px !important;
+}
+
+.combo-box-popup .list-cell:hover,
+.choice-box-popup .list-cell:hover {
+    -fx-background-color: #ff3333 !important;
+    -fx-text-fill: #ffffff !important;
+}
+
+
+.info-empleado,
+.info-cliente,
+.datos-personales,
+.datos-laborales {
+    -fx-background-color: #202020 !important;
+    -fx-border-color: #ff3333 !important;
+    -fx-border-width: 1.5px !important;
+    -fx-border-radius: 10px !important;
+    -fx-padding: 15px !important;
+    -fx-spacing: 10px !important;
+    -fx-margin: 10px 0 !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0.4, 0, 2);
+}
+
+
+.campo-dato {
+    -fx-font-size: 13px !important;
+    -fx-text-fill: #f0f0f0 !important;
+}
+
+.campo-dato .label {
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 1, 0.5, 0, 1);
+}
+
+
+.mensaje-busqueda,
+.alerta-resultado,
+.notificacion {
+    -fx-background-color: #252525 !important;
+    -fx-border-color: #ff3333 !important;
+    -fx-border-radius: 8px !important;
+    -fx-padding: 15px !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-font-size: 14px !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0.4, 0, 2);
+}
+
+
+.boton-accion-resultado {
+    -fx-background-color: linear-gradient(to bottom, #252525, #303030) !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-border-color: #ff3333 !important;
+    -fx-border-width: 1.5px !important;
+    -fx-border-radius: 6px !important;
+    -fx-padding: 8px 15px !important;
+    -fx-font-size: 13px !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 3, 0.3, 0, 2);
+}
+
+.boton-accion-resultado:hover {
+    -fx-background-color: linear-gradient(to bottom, #ff3333, #cc0000) !important;
+}
+
+
+*:focused {
+    -fx-border-color: #ff5555 !important;
+    -fx-border-width: 2px !important;
+}
+
+
+.sombra-intensa {
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.6), 20, 0.5, 0, 8) !important;
+}
+
+.sombra-media {
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.4), 15, 0.4, 0, 5) !important;
+}
+
+.sombra-suave {
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.2), 10, 0.3, 0, 3) !important;
+}
+
+
+.campo-valido {
+    -fx-border-color: #4CAF50 !important;
+    -fx-border-width: 2px !important;
+}
+
+.campo-invalido {
+    -fx-border-color: #ff4444 !important;
+    -fx-border-width: 2px !important;
+}
+
+.mensaje-exito {
+    -fx-text-fill: #4CAF50 !important;
+    -fx-font-weight: bold !important;
+}
+
+.mensaje-error {
+    -fx-text-fill: #ff4444 !important;
+    -fx-font-weight: bold !important;
+}
+
+
+.efecto-neon {
+    -fx-border-color: #ff3333 !important;
+    -fx-border-width: 2px !important;
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.8), 10, 0.5, 0, 0),
+                dropshadow(gaussian, rgba(255, 50, 50, 0.6), 20, 0.5, 0, 0),
+                dropshadow(gaussian, rgba(255, 50, 50, 0.4), 30, 0.5, 0, 0) !important;
+}

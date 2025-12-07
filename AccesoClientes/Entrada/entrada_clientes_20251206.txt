@@ -1,0 +1,1 @@
+ID del cliente: 20, Nombre: Jose, Apellidos: Gonzalez, Hora de entrada: 2025-12-06T18:27:36.256222900

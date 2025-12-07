@@ -1,0 +1,12 @@
+
+GymPOSSF564
+Tiquet de suscripcion a membresia
+============================================
+ID del cliente: 20
+Nombre del cliente: Jose Gonzalez
+Membresia: Oro
+Fecha y hora: 2025-12-06T18:25:06.715126100
+Subtotal: 400.509
+Descuento: 0 porciento
+Total: 400.509
+Metodo de pago: efectivo
